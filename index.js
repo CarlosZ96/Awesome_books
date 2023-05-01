@@ -1,48 +1,48 @@
-const tittle_input = document.querySelector('.title_input');
-const author_input = document.querySelector('.author_input');
-const btn_add = document.querySelector('.btn_add');
-const books_ul = document.querySelector('.books_list');
+const TittleInput = document.querySelector('.title_input');
+const AuthorInput = document.querySelector('.author_input');
+const BtnAdd = document.querySelector('.btn_add');
+const BooksUl = document.querySelector('.books_list');
 
-btn_add.addEventListener('click', (e) => {
+function DeleteBook() {
+  const DeleteBtn = document.createElement('button');
+  DeleteBtn.textContent = 'Remove';
+  DeleteBtn.addEventListener('click', (e) => {
+    const item = e.target.parentElement;
+    BooksUl.removeChild(item);
+  });
+  return DeleteBtn;
+}
+
+BtnAdd.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const tittleo = tittle_input.value;
-  const authoro = author_input.value;
+  const tittleo = TittleInput.value;
+  const authoro = AuthorInput.value;
 
   const book = document.createElement('li');
   const tittle = document.createElement('p');
   const author = document.createElement('p');
   const line = document.createElement('hr');
 
-  tittle.textContent= tittleo;
-  author.textContent= authoro;
+  tittle.textContent = tittleo;
+  author.textContent = authoro;
 
-  books_ul.append(book);
+  BooksUl.append(book);
   book.append(tittle);
   book.append(author);
-  book.append(delete_book());
+  book.append(DeleteBook());
   book.append(line);
 
-  tittle_input.value='';
-  author_input.value='';
+  TittleInput.value = '';
+  AuthorInput.value = '';
 });
-
-function delete_book() {
-  const delete_btn = document.createElement('button');
-  delete_btn.textContent = 'Remove'; 
-  delete_btn.addEventListener('click', (e) => {
-  const item = e.target.parentElement;
-  books_ul.removeChild(item);
-  });
-  return delete_btn;
-}
 
 // Capture the form and form elements
 const author = document.getElementById('author_input');
 const title = document.getElementById('title_input');
 
 // Get data from the javascript object
- function getFormData() {
+function getFormData() {
   const userData = localStorage.getItem('userData');
   if (userData !== null) {
     const userDataObj = JSON.parse(userData);

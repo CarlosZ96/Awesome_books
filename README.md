@@ -23,9 +23,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Portfolio] <a name="about-project"></a>
+# 📖 [Awesome Books] <a name="about-project"></a>
 
-Portfolio: Microverse-mobile-first
+Awesome Books
 
 **Awesome Books** Portfolio I can put on it all my work and personal information
 
