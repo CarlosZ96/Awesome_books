@@ -36,3 +36,34 @@ function delete_book() {
   });
   return delete_btn;
 }
+
+// Capture the form and form elements
+const author = document.getElementById('author_input');
+const title = document.getElementById('title_input');
+
+// Get data from the javascript object
+ function getFormData() {
+  const userData = localStorage.getItem('userData');
+  if (userData !== null) {
+    const userDataObj = JSON.parse(userData);
+    author.value = userDataObj.name;
+    title.value = userDataObj.text;
+  }
+}
+// Set data in the javascript object
+function setFormData() {
+  // Create a JavaScript object with the captured values
+  const contactInfo = {
+    name: author.value,
+    text: title.value,
+  };
+  // Save the object in the localStorage
+  localStorage.setItem('userData', JSON.stringify(contactInfo));
+}
+
+// Load stored object values from localstorage
+window.onload = () => { getFormData(); };
+
+// Listeners when an input value in the form changes
+author.addEventListener('change', () => setFormData());
+title.addEventListener('change', () => setFormData());
