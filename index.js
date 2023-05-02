@@ -46,8 +46,8 @@ function getFormData() {
   const userData = localStorage.getItem('userData');
   if (userData !== null) {
     const userDataObj = JSON.parse(userData);
-    AuthorInput.value = userDataObj.author;
-    TittleInput.value = userDataObj.title;
+    AuthorInput.value = userDataObj.name;
+    TittleInput.value = userDataObj.text;
   }
 }
 
