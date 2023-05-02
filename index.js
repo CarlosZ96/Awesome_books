@@ -1,70 +1,80 @@
-const TittleInput = document.querySelector('.title_input');
-const AuthorInput = document.querySelector('.author_input');
-const BtnAdd = document.querySelector('.btn_add');
-const BooksUl = document.querySelector('.books_list');
+const titleInput = document.querySelector('.title_input');
+const authorInput = document.querySelector('.author_input');
+const btnAdd = document.querySelector('.btn_add');
+const booksUl = document.querySelector('.books_list');
 
-function DeleteBook() {
-  const DeleteBtn = document.createElement('button');
-  DeleteBtn.textContent = 'Remove';
-  DeleteBtn.addEventListener('click', (e) => {
+function deleteBook() {
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Remove';
+  deleteBtn.addEventListener('click', (e) => {
     const item = e.target.parentElement;
-    BooksUl.removeChild(item);
+    booksUl.removeChild(item);
   });
-  return DeleteBtn;
+  return deleteBtn;
 }
 
-BtnAdd.addEventListener('click', (e) => {
+btnAdd.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const tittleo = TittleInput.value;
-  const authoro = AuthorInput.value;
+  const title = titleInput.value;
+  const author = authorInput.value;
 
   const book = document.createElement('li');
-  const tittle = document.createElement('p');
-  const author = document.createElement('p');
+  const titleP = document.createElement('p');
+  const authorP = document.createElement('p');
   const line = document.createElement('hr');
 
-  tittle.textContent = tittleo;
-  author.textContent = authoro;
+  titleP.textContent = title;
+  authorP.textContent = author;
 
-  BooksUl.append(book);
-  book.append(tittle);
-  book.append(author);
-  book.append(DeleteBook());
+  booksUl.append(book);
+  book.append(titleP);
+  book.append(authorP);
+  book.append(deleteBook());
   book.append(line);
 
-  TittleInput.value = '';
-  AuthorInput.value = '';
+  titleInput.value = '';
+  authorInput.value = '';
+
+  // Save data to localStorage
+  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
+  booksList.push({ title, author });
+  localStorage.setItem('booksList', JSON.stringify(booksList));
 });
 
-// Capture the form and form elements
-const author = document.getElementById('author_input');
-const title = document.getElementById('title_input');
+// Load data from localStorage
+window.addEventListener('load', () => {
+  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
+  for (let i = 0; i < booksList.length; i++) {
+    const book = document.createElement('li');
+    const titleP = document.createElement('p');
+    const authorP = document.createElement('p');
+    const line = document.createElement('hr');
 
-// Get data from the javascript object
-function getFormData() {
-  const userData = localStorage.getItem('userData');
-  if (userData !== null) {
-    const userDataObj = JSON.parse(userData);
-    AuthorInput.value = userDataObj.name;
-    TittleInput.value = userDataObj.text;
+    titleP.textContent = booksList[i].title;
+    authorP.textContent = booksList[i].author;
+
+    booksUl.append(book);
+    book.append(titleP);
+    book.append(authorP);
+    book.append(deleteBook());
+    book.append(line);
   }
+});
+
+// Update localStorage when form values change
+authorInput.addEventListener('change', updateLocalStorage);
+titleInput.addEventListener('change', updateLocalStorage);
+
+function updateLocalStorage() {
+  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
+  const author = authorInput.value;
+  const title = titleInput.value;
+  const bookIndex = booksList.findIndex(b => b.title === title);
+  if (bookIndex !== -1) {
+    booksList[bookIndex].author = author;
+  } else {
+    booksList.push({ title, author });
+  }
+  localStorage.setItem('booksList', JSON.stringify(booksList));
 }
-
-// Set data in the javascript object
-function setFormData() {
-  // Create a JavaScript object with the captured values
-  const contactInfo = {
-    name: author.value,
-    text: title.value,
-  };
-  // Save the object in the localStorage
-  localStorage.setItem('userData', JSON.stringify(contactInfo));
-}
-
-// Load stored object values from localstorage
-window.onload = () => { getFormData(); };
-
-// Listeners when an input value in the form changes
-author.addEventListener('change', () => setFormData());
-title.addEventListener('change', () => setFormData());
