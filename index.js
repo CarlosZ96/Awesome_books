@@ -46,10 +46,11 @@ function getFormData() {
   const userData = localStorage.getItem('userData');
   if (userData !== null) {
     const userDataObj = JSON.parse(userData);
-    author.value = userDataObj.name;
-    title.value = userDataObj.text;
+    AuthorInput.value = userDataObj.author;
+    TittleInput.value = userDataObj.title;
   }
 }
+
 // Set data in the javascript object
 function setFormData() {
   // Create a JavaScript object with the captured values
