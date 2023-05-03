@@ -33,8 +33,8 @@ class Abooks {
       localStorage.setItem('books', JSON.stringify(books));
       form.reset();
     };
-  };
-};
+  }
+}
 
 const Abooksa = new Abooks(books);
 Abooksa.local();
