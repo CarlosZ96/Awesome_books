@@ -32,20 +32,19 @@ class abooks {
       books.push(newBook);
       localStorage.setItem('books', JSON.stringify(books));
       form.reset();
-      return title, author, newBook;
     }
   }
 }
 
-const abooksa = new abooks(books);
-abooksa.local();
-abooksa.displayBooks();
+const Abooksa = new abooks(books);
+Abooksa.local();
+Abooksa.displayBooks();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const abooksa = new abooks(books);
-  abooksa.submitbtn();
-  abooksa.displayBooks();
+  const Abooksa = new abooks(books);
+  Abooksa.submitbtn();
+  Abooksa.displayBooks();
 });
 
 bookList.addEventListener('click', (event) => {
@@ -53,8 +52,8 @@ bookList.addEventListener('click', (event) => {
     const { index } = event.target.dataset;
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
-    const abooksa = new abooks(books);
-    abooksa.displayBooks();
+    const Abooksa = new abooks(books);
+    Abooksa.displayBooks();
   }
 });
-abooksa.displayBooks();
+Abooksa.displayBooks();
