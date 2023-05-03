@@ -1,8 +1,8 @@
 const form = document.querySelector('form');
 const bookList = document.getElementById('bookList');
-const books = []; 
+const books = [];
 
-class abooks {
+class Abooks {
   constructor(books) {
     this.books = books;
     this.local = () => {
@@ -32,17 +32,17 @@ class abooks {
       books.push(newBook);
       localStorage.setItem('books', JSON.stringify(books));
       form.reset();
-    }
-  }
-}
+    };
+  };
+};
 
-const Abooksa = new abooks(books);
+const Abooksa = new Abooks(books);
 Abooksa.local();
 Abooksa.displayBooks();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const Abooksa = new abooks(books);
+  const Abooksa = new Abooks(books);
   Abooksa.submitbtn();
   Abooksa.displayBooks();
 });
@@ -52,7 +52,7 @@ bookList.addEventListener('click', (event) => {
     const { index } = event.target.dataset;
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
-    const Abooksa = new abooks(books);
+    const Abooksa = new Abooks(books);
     Abooksa.displayBooks();
   }
 });
