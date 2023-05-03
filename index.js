@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const bookList = document.getElementById('bookList');
-let books = []; 
+const books = []; 
 
 class abooks {
   constructor(books) {
@@ -9,7 +9,8 @@ class abooks {
       if (localStorage.getItem('books')) {
         books = JSON.parse(localStorage.getItem('books'));
       }
-    }
+    };
+
     this.displayBooks = () => {
       if (localStorage.getItem('books')) {
         books = JSON.parse(localStorage.getItem('books'));
@@ -22,7 +23,8 @@ class abooks {
         li.innerHTML = ` " ${book.title} " by ${book.author} <button class="removeBtn" data-index="${index}">Remove</button>`;
         bookList.appendChild(li);
       });
-    }
+    };
+
     this.submitbtn = () => {
       const title = document.getElementById('bookTitle').value;
       const author = document.getElementById('authorName').value;
