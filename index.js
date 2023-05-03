@@ -1,80 +1,41 @@
-const titleInput = document.querySelector('.title_input');
-const authorInput = document.querySelector('.author_input');
-const btnAdd = document.querySelector('.btn_add');
-const booksUl = document.querySelector('.books_list');
+let books = [];
 
-function deleteBook() {
-  const deleteBtn = document.createElement('button');
-  deleteBtn.textContent = 'Remove';
-  deleteBtn.addEventListener('click', (e) => {
-    const item = e.target.parentElement;
-    booksUl.removeChild(item);
+if (localStorage.getItem('books')) {
+  books = JSON.parse(localStorage.getItem('books'));
+}
+
+const form = document.querySelector('form');
+const bookList = document.getElementById('bookList');
+
+function displayBooks() {
+  bookList.className = 'bookList';
+  bookList.innerHTML = '';
+  books.forEach((book, index) => {
+    const li = document.createElement('li');
+    li.className = 'lineBook';
+    li.innerHTML = ` " ${book.title} " by ${book.author} <button class="removeBtn" data-index="${index}">Remove</button>`;
+    bookList.appendChild(li);
   });
-  return deleteBtn;
 }
 
-btnAdd.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  const title = titleInput.value;
-  const author = authorInput.value;
-
-  const book = document.createElement('li');
-  const titleP = document.createElement('p');
-  const authorP = document.createElement('p');
-  const line = document.createElement('hr');
-
-  titleP.textContent = title;
-  authorP.textContent = author;
-
-  booksUl.append(book);
-  book.append(titleP);
-  book.append(authorP);
-  book.append(deleteBook());
-  book.append(line);
-
-  titleInput.value = '';
-  authorInput.value = '';
-
-  // Save data to localStorage
-  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
-  booksList.push({ title, author });
-  localStorage.setItem('booksList', JSON.stringify(booksList));
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const title = document.getElementById('bookTitle').value;
+  const author = document.getElementById('authorName').value;
+  const newBook = { title, author };
+  books.push(newBook);
+  localStorage.setItem('books', JSON.stringify(books));
+  form.reset();
+  displayBooks();
 });
 
-// Load data from localStorage
-window.addEventListener('load', () => {
-  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
-  for (let i = 0; i < booksList.length; i++) {
-    const book = document.createElement('li');
-    const titleP = document.createElement('p');
-    const authorP = document.createElement('p');
-    const line = document.createElement('hr');
-
-    titleP.textContent = booksList[i].title;
-    authorP.textContent = booksList[i].author;
-
-    booksUl.append(book);
-    book.append(titleP);
-    book.append(authorP);
-    book.append(deleteBook());
-    book.append(line);
+bookList.addEventListener('click', (event) => {
+  if (event.target.classList.contains('removeBtn')) {
+    const { index } = event.target.dataset;
+    books.splice(index, 1);
+    localStorage.setItem('books', JSON.stringify(books));
+    displayBooks();
   }
 });
 
-// Update localStorage when form values change
-authorInput.addEventListener('change', updateLocalStorage);
-titleInput.addEventListener('change', updateLocalStorage);
-
-function updateLocalStorage() {
-  const booksList = JSON.parse(localStorage.getItem('booksList')) || [];
-  const author = authorInput.value;
-  const title = titleInput.value;
-  const bookIndex = booksList.findIndex(b => b.title === title);
-  if (bookIndex !== -1) {
-    booksList[bookIndex].author = author;
-  } else {
-    booksList.push({ title, author });
-  }
-  localStorage.setItem('booksList', JSON.stringify(booksList));
-}
+displayBooks();

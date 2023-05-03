@@ -5,24 +5,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Books - Joaquin and Carlos </title>
   <link rel="stylesheet" href="style.css">
-  <title>Test</title>
 </head>
 
 <body>
-  <form>
-    <h1>Awesome books</h1>
-    <div class="lict_container">
-      <ul class="books_list">
+  <main>
+    <div id="add_new" class="add_new">
+      <h2>Add a new book</h2>
+      <form>
+        <div>
+          <label for="bookTitle">Book Title:</label>
+          <input type="text" id="bookTitle" required><br>
 
-      </ul>
+          <label for="authorName">Author Name:</label>
+          <input type="text" id="authorName" required><br>
+        </div>
+        <button type="submit" id="addBtn">Add Book</button>
+      </form>
     </div>
-    <hr>
-    <input type="text" placeholder="Title" class="title_input" id="title_input" ><br>
-    <input type="text" placeholder="Author" class="author_input" id="author_input"><br>
-    <button class="btn_add">Add</button>
-  </form>
-  <script src="index.js"></script>
+    <div id="list" class="list">
+      <!-- <h2>All awesome books</h2> -->
+      <ul id="bookList"></ul>
+    </div>
+    </div>
+    <p>Copyright</p>
+  </main>
+  <script src="./index.js"></script>
 </body>
 
 </html>
