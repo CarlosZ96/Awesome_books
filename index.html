@@ -7,16 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awesome Books - Joaquin and Carlos </title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=IBM+Plex+Serif:ital,wght@1,300&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main>
+    <h1>All awesome books</h1>
     <div id="list" class="list">
       <!-- <h2>All awesome books</h2> -->
       <ul id="bookList"></ul>
     </div>
     </div>
-    <p>Copyright</p>
+    <hr class="line">
   </main>
   <div id="add_new" class="add_new">
     <h2>Add a new book</h2>
@@ -28,7 +32,7 @@
         <label for="authorName">Author Name:</label>
         <input type="text" id="authorName" required><br>
       </div>
-      <button type="submit" id="addBtn">Add Book</button>
+      <button class="btn" type="submit" id="addBtn">Add</button>
     </form>
   </div>
   <script src="./index.js"></script>
