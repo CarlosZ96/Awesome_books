@@ -122,3 +122,7 @@ nav{
   display: flex;
   list-style: none;
 }
+
+.hide{
+  display: none;
+}

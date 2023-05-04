@@ -1,5 +1,11 @@
 const form = document.querySelector('form');
-const bookList = document.getElementById('bookList');
+const bookList = document.getElementById('bookList'); 
+const menua = document.querySelector('.menua'); 
+const menub = document.querySelector('.menub'); 
+const menuc = document.querySelector('.menuc'); 
+const main = document.querySelector('.list'); 
+const add = document.querySelector('.add_new'); 
+const contact = document.querySelector('.contact'); 
 const books = [];
 
 class Abooks {
@@ -57,3 +63,19 @@ bookList.addEventListener('click', (event) => {
   }
 });
 Abooksa.displayBooks();
+
+menua.addEventListener('click', () => {
+  main.classList.toggle('hide');
+  add.classList.add('hide');
+  contact.classList.add('hide');
+});
+menub.addEventListener('click', () => {
+  add.classList.toggle('hide');
+  main.classList.add('hide');
+  contact.classList.add('hide');
+});
+menuc.addEventListener('click', () => {
+  contact.classList.toggle('hide');
+  main.classList.add('hide');
+  add.classList.add('hide');
+});
