@@ -101,3 +101,24 @@ input {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text p {
+  margin: 0;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu{
+  display: flex;
+  list-style: none;
+}
