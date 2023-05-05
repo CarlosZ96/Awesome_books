@@ -25,9 +25,7 @@
 
 # 📖 [Awesome Books] <a name="about-project"></a>
 
-Awesome Books
-
-**Awesome Books** Portfolio I can put on it all my work and personal information
+Awesome Books is a single-page application (SPA) website that provides users with the ability to create and manage their book collection. With this website, users can easily create a book by providing a title and author name, and then add it to their personal books list on the page
 
 ## 🛠 Built With <a name="built-with">
 ### Tech Stack <a name="tech-stack"></a>
@@ -40,8 +38,9 @@ Awesome Books
 
 ### Key Features <a name="key-features"></a>
 
-- **Good HTML, CSS, and Javascript practices**
-- **This repository includes linters**
+- **Add Books to a book list**
+- **Delete Books from the book list**
+- **Save data to local storage**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -67,12 +66,17 @@ Clone this repository to your desired folder:
 `git clone`
 `https://github.com/CarlosZ96/Awesome_books.git`
 
-<!-- LIVE DEMO -->
+###  Install
 
-## 🚀 Live Demo <a name="live-demo"></a>
+```install
+npm install
+```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Test
 
+```test
+npx hint .
+npx eslint .`
 
 <!-- AUTHORS -->
 
@@ -97,7 +101,9 @@ Clone this repository to your desired folder:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Make the project more professional**
+- **Add animation for the project**
+- **Add the editing functionality**
+- **Add the test for the project**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
