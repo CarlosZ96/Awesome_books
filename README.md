@@ -68,15 +68,16 @@ Clone this repository to your desired folder:
 
 ###  Install
 
-```install
-npm install
-```
+ ```install
+ npm install
+ ```
 
 ### Test
 
 ```test
 npx hint .
-npx eslint .`
+npx eslint .
+```
 
 <!-- AUTHORS -->
 
