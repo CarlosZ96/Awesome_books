@@ -1,11 +1,11 @@
 const form = document.querySelector('form');
-const bookList = document.getElementById('bookList'); 
-const menua = document.querySelector('.menua'); 
-const menub = document.querySelector('.menub'); 
-const menuc = document.querySelector('.menuc'); 
-const main = document.querySelector('.list'); 
-const add = document.querySelector('.add_new'); 
-const contact = document.querySelector('.contact'); 
+const bookList = document.getElementById('bookList');
+const menua = document.querySelector('.menua');
+const menub = document.querySelector('.menub');
+const menuc = document.querySelector('.menuc');
+const main = document.querySelector('.list');
+const add = document.querySelector('.add_new');
+const contact = document.querySelector('.contact');
 const books = [];
 
 class Abooks {
