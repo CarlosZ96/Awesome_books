@@ -13,23 +13,31 @@
 </head>
 
 <body>
-  <nav>
+  <nav class="nav-bar">
     <h3>Awesome books</h3>
     <ul class="menu">
     <li><a href="#" class ="menua">List</a></li>  
-    <li><a href="#" class ="menub">Add new</a></li>  
+    <li><a href="#" class ="menub">Add New</a></li>  
     <li><a href="#" class ="menuc">Contact</a></li>  
     </ul>
   </nav>
-  <main class="list">  
+  <main class="list">
+    <div class="date">
+      <p class="today-date">May 5th 2023, 11:57</p>
+    </div>
     <h1>All awesome books</h1>
     <div id="list" class="list">
-      <ul id="bookList"></ul>
+      <ul class="book-list" id="bookList"></ul>
     </div>
     </div>
-    <hr class="line">
+    <div class="copyright-div">
+      <p class="copyright">Copyright .. </p>
+    </div>
   </main>
   <div id="add_new" class="add_new hide">
+    <div class="date">
+      <p class="today-date">May 5th 2023, 11:57</p>
+    </div>
     <h2>Add a new book</h2>
     <form>
       <div>
@@ -41,8 +49,14 @@
       </div>
       <button class="btn" type="submit" id="addBtn">Add</button>
     </form>
+    <div class="copyright-div">
+      <p class="copyright">Copyright .. </p>
+    </div>
   </div>
   <div class="contact hide">
+    <div class="date">
+      <p class="today-date">May 5th 2023, 11:57</p>
+    </div>
     <h2>Contact Information</h2>
     <div class="text">
       <p>Do you have any questions or just want to say "hello"?</p>
@@ -53,7 +67,9 @@
       <li>Our fake phone number 04052023</li>
       <li>Our address street false 123</li>
     </ul>
-    <p>Copyright</p>
+    <div class="copyright-div">
+      <p class="copyright">Copyright .. </p>
+    </div>
   </div>
   <script src="./index.js"></script>
 </body>
