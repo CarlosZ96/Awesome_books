@@ -58,7 +58,6 @@ bookList.addEventListener('click', (event) => {
     const { index } = event.target.dataset;
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
-    const Abooksa = new Abooks(books);
     Abooksa.displayBooks();
   }
 });
