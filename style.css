@@ -6,6 +6,8 @@
 
 body {
   font-family: 'Comic Neue', cursive;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .list {
@@ -60,12 +62,6 @@ h2 {
   padding: 10px;
 }
 
-.lineBook {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .removeBtn {
   border-right: 5px solid black;
   border-bottom: 5px solid black;
@@ -100,4 +96,110 @@ input {
   width: 15%;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text p {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+.hide {
+  display: none;
+}
+
+.lineBook {
+  height: 50px;
+  text-align: center;
+  align-items: center;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lineBook:nth-child(odd) {
+  background-color: rgb(204, 202, 202);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  border: 3px solid black;
+  padding: 5px 20px;
+}
+
+.menub {
+  border-left: 1px solid black;
+  padding-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+
+.menuc {
+  border-left: 1px solid black;
+  padding-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+
+.menua {
+  text-decoration: none;
+  color: black;
+}
+
+.menua:hover {
+  color: blue;
+}
+
+.menub:hover {
+  color: blue;
+}
+
+.menuc:hover {
+  color: blue;
+}
+
+.date {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  padding-right: 20px;
+}
+
+.today-date {
+  text-align: left;
+}
+
+.copyright-div {
+  width: 90%;
+}
+
+.copyright {
+  border: 3px solid black;
+  padding: 5px;
 }
